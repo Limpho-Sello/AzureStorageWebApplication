@@ -1,0 +1,30 @@
+﻿@model AzureStorageWebApplication.Models.InventoryEvent
+
+@{
+    ViewData["Title"] = "Create Inventory Event";
+}
+
+<h2 class="mb-4">Create Inventory Event</h2>
+
+<form asp-action="Create" method="post" class="border rounded p-4 shadow-sm">
+    <div class="form-group mb-3">
+        <label asp-for="Product" class="form-label"></label>
+        <input asp-for="Product" class="form-control" />
+        <span asp-validation-for="Product" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Quantity" class="form-label"></label>
+        <input asp-for="Quantity" type="number" class="form-control" />
+        <span asp-validation-for="Quantity" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Action" class="form-label"></label>
+        <input asp-for="Action" class="form-control" />
+        <span asp-validation-for="Action" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</form>

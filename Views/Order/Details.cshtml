@@ -1,0 +1,52 @@
+﻿@model AzureStorageWebApplication.Models.Order
+
+@{
+    ViewData["Title"] = "Order Details";
+}
+
+<h2 class="mb-4">Order Details</h2>
+
+<div class="card shadow-lg border-0 rounded-3">
+    <div class="card-body">
+        <h5 class="card-title">Order ID: @Model.OrderId</h5>
+        <hr />
+
+        <dl class="row">
+            <dt class="col-sm-3">Customer Name</dt>
+            <dd class="col-sm-9">@Model.CustomerName</dd>
+
+            <dt class="col-sm-3">Product</dt>
+            <dd class="col-sm-9">@Model.ProductTitle</dd>
+
+            <dt class="col-sm-3">Quantity</dt>
+            <dd class="col-sm-9">@Model.Quantity</dd>
+
+            <dt class="col-sm-3">Status</dt>
+            <dd class="col-sm-9">
+                @if (Model.Status == "Queued")
+                {
+                    <span class="badge bg-warning text-dark">@Model.Status</span>
+                }
+                else if (Model.Status == "Processing")
+                {
+                    <span class="badge bg-info">@Model.Status</span>
+                }
+                else if (Model.Status == "Completed")
+                {
+                    <span class="badge bg-success">@Model.Status</span>
+                }
+                else
+                {
+                    <span class="badge bg-secondary">@Model.Status</span>
+                }
+            </dd>
+
+            <dt class="col-sm-3">Created At</dt>
+            <dd class="col-sm-9">@Model.CreatedAt.ToString("yyyy-MM-dd HH:mm")</dd>
+        </dl>
+    </div>
+
+    <div class="card-footer text-end">
+        <a asp-action="Index" class="btn btn-secondary">Back to Orders</a>
+    </div>
+</div>

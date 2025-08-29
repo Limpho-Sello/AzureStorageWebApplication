@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AzureStorageWebApplication.Models.Customer>
+
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<h2>Customers</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add New Customer</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+       <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+     
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.Name</td>
+                <td>@customer.Email</td>
+                <td>@customer.Phone</td>
+               
+                <td>
+                    <a asp-action="Edit" asp-route-id="@customer.RowKey" class="btn btn-sm btn-primary">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@customer.RowKey" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

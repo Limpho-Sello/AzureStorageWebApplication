@@ -1,0 +1,35 @@
+﻿@model IEnumerable<AzureStorageWebApplication.Models.Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h2>Products</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Product</a>
+</p>
+
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-md-3 mb-4">
+            <div class="card h-80">
+                <img src="@product.ImageUrl" class="card-img-top" alt="@product.Title" style="height:180px; object-fit:cover;" />
+                <div class="card-body">
+                    <h5 class="card-title">@product.Title</h5>
+                    <p class="card-text">@product.Description</p>
+                    <p class="card-text"><strong>R @product.Price.ToString("F2")</strong></p>
+                    <p class="card-text"><strong> @product.Inventory In Stock</strong></p>
+                </div>
+                <div class="card-footer">
+                    <a asp-action="Download" asp-route-rowKey="@product.RowKey" class="btn  btn-success btn-sm">Download</a>
+                    <a asp-action="Edit" asp-route-id="@product.RowKey" class="btn btn-sm btn-primary">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@product.RowKey" class="btn btn-danger btn-sm">Delete</a>
+                    <a asp-action="Details" asp-route-id="@product.RowKey" class="btn btn-outline-secondary btn-sm">Details</a>
+
+                </div>
+            </div>
+        </div>
+    }
+</div>

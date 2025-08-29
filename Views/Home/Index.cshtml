@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">ABC Retail Azure Storage Web Application  </h1>
+    <p class="lead">Manages Customers, Products, Orders, and Logs using Azure Storage Account.</p>
+</div>
+
+<div class="row mt-5 text-center">
+    <div class="col-md-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Customers</h5>
+                <p class="card-text">Customer profiles stored in Azure Table Storage.</p>
+                <a asp-controller="Customer" asp-action="Index" class="btn btn-primary">View Customers</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Products</h5>
+                <p class="card-text">Products information stored in Azure Table storage and their images stored in Azure Blob Storage.</p>
+                <a asp-controller="Product" asp-action="Index" class="btn btn-primary">View Products</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Orders and Inentory Management</h5>
+                <p class="card-text">Process and track orders and inventory using Azure Queues.</p>
+                <a asp-controller="Queue" asp-action="Index" class="btn btn-sm btn-primary">View Queues</a>
+
+                <div class="card-footer">
+                  
+                    <a asp-controller="Order" asp-action="Index" class="btn btn-sm btn-secondary">Orders</a>
+                    <a asp-controller="InventoryEvent" asp-action="Index" class="btn btn-sm btn-secondary">Inventory</a>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Logs</h5>
+                <p class="card-text">Check activity logs stored in Azure File Shares.</p>
+                <a asp-controller="Log" asp-action="Index" class="btn btn-primary">View Logs</a>
+            </div>
+        </div>
+    </div>
+</div>

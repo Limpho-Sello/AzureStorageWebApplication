@@ -1,0 +1,27 @@
+﻿@model AzureStorageWebApplication.Models.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <img src="@Model.ImageUrl" class="card-img-top" alt="@Model.Title" style="height:250px; object-fit:scale-down;" />
+                <div class="card-body">
+                    <h3 class="card-title">@Model.Title</h3>
+                    <p class="card-text">@Model.Description</p>
+                    <p class="card-text"><strong>Price:</strong> R @Model.Price.ToString("F2")</p>
+                    <p class="card-text"><strong>Available Stock:</strong> @Model.Inventory</p>
+            
+                    <p class="card-text"><strong>Image URL:</strong> <a href="@Model.ImageUrl" target="_blank">@Model.ImageUrl</a></p>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-action="Edit" asp-route-id="@Model.RowKey" class="btn btn-primary me-2">Edit</a>
+                    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
